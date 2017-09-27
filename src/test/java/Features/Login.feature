@@ -3,9 +3,9 @@ Feature: LoginFeature
 
   Scenario: Login with correct username and password
   Given default properties loded into hashmap
-  And set login username to ""
-  And set login password to ""
-  When user perform flight booking action
+  And set login username to "somesh"
+  And set login password to "kumud"
+  When user perform login action
   Then user should see message ""
 
 

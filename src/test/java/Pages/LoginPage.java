@@ -53,7 +53,8 @@ public class LoginPage extends BaseUtil{
 
 
     public void doLogin(){
-
+        System.out.println("Navigate Login Page");
+        driver.get("http://newtours.demoaut.com/");
         enterCredentials(sys_default_prop.get("uname"), sys_default_prop.get("pwd"));
         ClickLoginButton();
 

@@ -90,8 +90,9 @@ public class BookFlight extends BaseUtil{
         String arDate[]=fromDate.split("/");
         String dd=arDate[0];
         String mm=arDate[1];
+        int month=Integer.parseInt(mm);
 
-        ddDepFromMonth.selectByValue(mm);
+        ddDepFromMonth.selectByIndex(month-1);
         ddDepFromDay.selectByValue(dd);
     }
 
@@ -106,7 +107,43 @@ public class BookFlight extends BaseUtil{
         }
     }
 
+    public void setTripType(String tripType){
+        sys_default_prop.put("tripType",tripType);
+    }
+
+
+    public void setNumberOfPassengers(String noOfPassengers){
+        sys_default_prop.put("noOfPassengers",noOfPassengers);
+    }
+
+    public void setDepartingFrom(String departingFrom){
+        sys_default_prop.put("departingFrom",departingFrom);
+    }
+
+    public void setDepartingOn(String departingOn){
+        sys_default_prop.put("departingOn",departingOn);
+    }
+
+    public void setArrivingIn(String arrivingIn){
+        sys_default_prop.put("arrivingIn",arrivingIn);
+    }
+
+    public void setServiceClass(String serviceClass){
+        sys_default_prop.put("serviceClass",serviceClass);
+    }
+
     public void clickContinue(){
         btnFindFlights.click();
     }
+
+    public void doBookflight(){
+        selectTripType(sys_default_prop.get("tripType"));
+        selectNumberOfPass(sys_default_prop.get("noOfPassengers"));
+        selectDepartFrom(sys_default_prop.get("departingFrom"));
+        selectDepartOn(sys_default_prop.get("departingOn"));
+        selectArriveTo(sys_default_prop.get("arrivingIn"));
+        selectServiceClass(sys_default_prop.get("serviceClass"));
+        clickContinue();
+    }
+
 }
