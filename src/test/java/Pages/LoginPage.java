@@ -28,7 +28,7 @@ public class LoginPage extends BaseUtil{
     public WebElement lnkSignOff;
 
 
-    public void EnterCredentials(String username, String password){
+    public void enterCredentials(String username, String password){
         txtUsername.sendKeys(username);
 
         txtPassword.sendKeys(password);
@@ -36,7 +36,26 @@ public class LoginPage extends BaseUtil{
 
     }
 
+    public void setLoginUsername(String uName) {
+
+        sys_default_prop.put("uname",uName);
+    }
+
+    public void setLoginPassword(String uName) {
+
+        sys_default_prop.put("pwd",uName);
+    }
+
+
     public void ClickLoginButton(){
         btnLogin.click();
+    }
+
+
+    public void doLogin(){
+
+        enterCredentials(sys_default_prop.get("uname"), sys_default_prop.get("pwd"));
+        ClickLoginButton();
+
     }
 }

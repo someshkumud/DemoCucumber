@@ -13,12 +13,10 @@ import java.util.Properties;
  * Created by Somesh.
  */
 public class BaseUtil {
+    public static WebDriver driver;
+    public static HashMap<String, String> sys_default_prop=new HashMap<String, String>();
+public static void load_default_props(){
 
-public static void main_test(String[] args){
-
-    WebDriver driver;
-
-    HashMap<String, String> sys_default_prop=new HashMap<String, String>();
     Properties load_props=new Properties();
     get_default_props(load_props,sys_default_prop);
     process_properties(load_props,sys_default_prop);
