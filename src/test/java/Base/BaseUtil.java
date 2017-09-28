@@ -1,6 +1,7 @@
 package Base;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,7 +14,8 @@ import java.util.Properties;
  * Created by Somesh.
  */
 public class BaseUtil {
-    public static WebDriver driver;
+    public static WebDriver dr;
+    public static EventFiringWebDriver driver;
 
     public static HashMap<String, String> sys_default_prop=new HashMap<String, String>();
 

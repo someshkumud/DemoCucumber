@@ -1,6 +1,6 @@
 Feature: LoginFeature
   This feature deals with the login functionality of the application
-
+@Regression
   Scenario: Login with correct username and password
   Given default properties loded into hashmap
   And set login username to "somesh"

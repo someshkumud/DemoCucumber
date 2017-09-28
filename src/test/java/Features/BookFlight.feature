@@ -1,5 +1,6 @@
 Feature: Book Flight Feature
 
+  @Regression
   Scenario: Book one way flight for single passenger
     Given default properties loded into hashmap
     And set login username to "om"
