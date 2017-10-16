@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression" parallel="classes" thread-count="2">
+  <test name="PTML">
+    <classes>
+      <class name="Runner.TestRunner_England"/>
+      <class name="Runner.TestRunner_Wales"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -39,8 +39,8 @@ public class LoginStep extends BaseUtil{
     @Given("^I navigate to the login page$")
     public void iNavigateToTheLoginPage() throws Throwable {
 
-        System.out.println("Navigate Login Page");
-        base.driver.get("http://newtours.demoaut.com/");
+        //System.out.println("Navigate Login Page");
+        //base.driver.get("http://newtours.demoaut.com/");
         //driver.navigate().to("http://newtours.demoaut.com/");
     }
 
@@ -84,7 +84,7 @@ public class LoginStep extends BaseUtil{
         LoginPage page=new LoginPage(base.driver);
         page.load_default_props();
 
-        throw new PendingException();
+        //throw new PendingException();
     }
 
 
@@ -93,7 +93,7 @@ public class LoginStep extends BaseUtil{
         // Write code here that turns the phrase above into concrete actions
         LoginPage page=new LoginPage(base.driver);
         page.setLoginUsername(uName);
-        throw new PendingException();
+        //throw new PendingException();
     }
 
     @And("^set login password to \"([^\"]*)\"$")
@@ -101,21 +101,23 @@ public class LoginStep extends BaseUtil{
         // Write code here that turns the phrase above into concrete actions
         LoginPage page=new LoginPage(base.driver);
         page.setLoginPassword(passWord);
-        throw new PendingException();
+        //throw new PendingException();
     }
 
-    @When("^user perform flight booking action$")
-    public void userPerformFlightBookingAction() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        LoginPage page=new LoginPage(base.driver);
-        page.doLogin();
-        throw new PendingException();
-    }
 
     @Then("^user should see message \"([^\"]*)\"$")
     public void userShouldSeeMessage(String arg0) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        //throw new PendingException();
+    }
+
+    @When("^user perform login action$")
+    public void userPerformLoginAction() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        LoginPage page=new LoginPage(base.driver);
+        page.doLogin();
+
+        //throw new PendingException();
     }
 
 

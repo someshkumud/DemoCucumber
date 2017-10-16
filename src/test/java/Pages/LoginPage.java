@@ -1,6 +1,9 @@
 package Pages;
 
 import Base.BaseUtil;
+import ExtentReport.ExtentManager;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,6 +12,14 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BaseUtil{
+
+    /*static {
+        ExtentReports extent;
+        ExtentTest test;
+        extent = ExtentManager.GetExtent();
+
+    }*/
+
 
     public LoginPage(WebDriver driver){
         PageFactory.initElements(driver, this);
@@ -26,6 +37,7 @@ public class LoginPage extends BaseUtil{
 
     @FindBy(how = How.LINK_TEXT, using = "SIGN-OFF")
     public WebElement lnkSignOff;
+
 
 
     public void enterCredentials(String username, String password){
@@ -53,7 +65,8 @@ public class LoginPage extends BaseUtil{
 
 
     public void doLogin(){
-
+        System.out.println("Navigate Login Page");
+        driver.get("http://newtours.demoaut.com/");
         enterCredentials(sys_default_prop.get("uname"), sys_default_prop.get("pwd"));
         ClickLoginButton();
 
