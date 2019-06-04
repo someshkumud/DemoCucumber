@@ -1,61 +1,34 @@
 package Pages;
 
-import Base.BaseUtil;
-import org.openqa.selenium.By;
+import Util.BaseUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage extends BaseUtil{
+public class LoginPage extends BaseUtil {
 
-    public LoginPage(WebDriver driver){
+    public LoginPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
 
-    @FindBy(how = How.NAME, using = "userName")
-    public WebElement txtUsername;
+    @FindBy(how = How.XPATH, using = "//input[@id='mat-input-0']")
+    private WebElement txtLoginEmailOrCasparID;
 
-    @FindBy(how = How.NAME, using = "password")
-    public WebElement txtPassword;
+    @FindBy(how = How.XPATH, using = "//input[@id='mat-input-1']")
+    private WebElement txtPassword;
 
-    @FindBy(how = How.NAME, using = "login")
-    public WebElement btnLogin;
-
-    @FindBy(how = How.LINK_TEXT, using = "SIGN-OFF")
-    public WebElement lnkSignOff;
+    @FindBy(how = How.XPATH, using = "//button[@color='primary']")
+    private WebElement btnLogin;
 
 
-    public void enterCredentials(String username, String password){
-        txtUsername.sendKeys(username);
-
-        txtPassword.sendKeys(password);
-
-
-    }
-
-    public void setLoginUsername(String uName) {
-
-        sys_default_prop.put("uname",uName);
-    }
-
-    public void setLoginPassword(String uName) {
-
-        sys_default_prop.put("pwd",uName);
+    public void loginToCasper() {
+        enterValueInTextBox(txtLoginEmailOrCasparID, sys_default_prop.get("userName"));
+        enterValueInTextBox(txtPassword, sys_default_prop.get("password"));
+        clickOn(btnLogin);
     }
 
 
-    public void ClickLoginButton(){
-        btnLogin.click();
-    }
-
-
-    public void doLogin(){
-
-        enterCredentials(sys_default_prop.get("uname"), sys_default_prop.get("pwd"));
-        ClickLoginButton();
-
-    }
 }
